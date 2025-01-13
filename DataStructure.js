@@ -52,26 +52,17 @@ console.log(liner_Data);
 let arr = [1, 2, 3, 5, 6, 7, 8, 33, 44, 55, 66, 77];
 
 function binary_Search(arr, x) {
-  
-  
   let left = 0;
   let right = arr.length - 1;
 
   while (left <= right) {
     let mid = Math.floor((left + right) / 2);
 
-
     if (arr[mid] == x) {
       return mid;
     } else if (arr[mid] < x) {
-     
-      
       left = mid + 1;
-     
-      
     } else {
-      console.log('right mid', + mid);
-      
       right = mid - 1;
     }
   }
@@ -81,4 +72,49 @@ function binary_Search(arr, x) {
 let binary_Data = binary_Search(arr, 33);
 console.log(binary_Data);
 
-//Binary  search end
+//Binary  search end 
+
+//   Slecttion sort start 
+
+let arr2=[5,9,99,33,7,2,1]
+
+function slection_sort(arr2,n){
+  let min,temp,i,j;
+
+  for(i=0;i<n-1;i++){
+    min=i;
+    for(j=i+1;j<n;j++){
+      if(arr2[j]<arr2[min]){
+        min=j
+        console.log('j value',arr2[j]);
+        
+      }
+    }
+
+    if(min != i){
+      temp=arr2[i];
+      console.log('temp' ,arr2[i])      
+      arr2[i]=arr2[min];
+      console.log('min', arr2[i]);      
+
+      arr2[min]=temp
+    }
+  }
+  
+return arr2
+}
+
+let len= arr2.length;
+
+let selection_data = slection_sort(arr2,len)
+console.log(selection_data);
+
+
+
+
+//   Slecttion sort End
+
+
+
+
+

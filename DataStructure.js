@@ -72,49 +72,70 @@ function binary_Search(arr, x) {
 let binary_Data = binary_Search(arr, 33);
 console.log(binary_Data);
 
-//Binary  search end 
+//Binary  search end
 
-//   Slecttion sort start 
+//   Selecttion sort start
 
-let arr2=[5,9,99,33,7,2,1]
+let arr2 = [5, 9, 99, 33, 7, 2, 1];
 
-function slection_sort(arr2,n){
-  let min,temp,i,j;
+function slection_sort(arr2, n) {
+  let min, temp, i, j;
 
-  for(i=0;i<n-1;i++){
-    min=i;
-    for(j=i+1;j<n;j++){
-      if(arr2[j]<arr2[min]){
-        min=j
-        console.log('j value',arr2[j]);
-        
+  for (i = 0; i < n - 1; i++) {
+    min = i;
+    for (j = i + 1; j < n; j++) {
+      if (arr2[j] < arr2[min]) {
+        min = j;
       }
     }
 
-    if(min != i){
-      temp=arr2[i];
-      console.log('temp' ,arr2[i])      
-      arr2[i]=arr2[min];
-      console.log('min', arr2[i]);      
+    if (min != i) {
+      temp = arr2[i];
 
-      arr2[min]=temp
+      arr2[i] = arr2[min];
+
+      arr2[min] = temp;
     }
   }
-  
-return arr2
+
+  return arr2;
 }
 
-let len= arr2.length;
+let len = arr2.length;
 
-let selection_data = slection_sort(arr2,len)
+let selection_data = slection_sort(arr2, len);
 console.log(selection_data);
 
+//   Selecttion sort End  
 
 
 
-//   Slecttion sort End
+//   Insertion sort start  
 
 
+function insertion_Sort(arr,n){
+  let i,j,item;
+
+  for(i=1;i<n;i++){
+    item = arr[i]
+
+    j=i-1;
+    while(j>=0 && arr[j]>item){
+      arr[j+1]=arr[j];
+      j= j-1;
+  }
+
+  arr[j+1]=item;
 
 
+}
+return arr
+
+}
+
+let insertion_Sort_Data= insertion_Sort(arr2,len)
+
+console.log(insertion_Sort_Data);
+
+//   Insertion sort End
 

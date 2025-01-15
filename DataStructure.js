@@ -139,3 +139,46 @@ console.log(insertion_Sort_Data);
 
 //   Insertion sort End
 
+
+
+// Stack start 
+
+class Stack{
+  constructor(){
+    this.item =[ ];
+  }
+  pushs(element){
+    this.item.push(element);
+  }
+
+  pops(){
+    if(this.item.length ===0){
+      return this.item.pop()
+    }
+    return this.item.pop();
+  }
+
+}
+
+let stack = new Stack();
+stack.pushs(3)
+stack.pushs(3);
+stack.pushs(7);
+stack.pushs(9);
+stack.pushs(6);
+stack.pushs(8);
+stack.pushs(2);
+
+stack.pops()
+
+
+console.log(stack);
+
+
+// Stack End
+
+
+
+
+
+

@@ -175,6 +175,46 @@ stack.pops()
 console.log(stack);
 
 
+
+
+
+class Stacks {
+  constructor() {
+    this.stack = []; // Initialize an empty array
+    this.size = 0;   // Track the number of elements in the stack
+  }
+
+  // Simulated Push
+  push(element) {
+    this.stack[this.size] = element; // Assign the element at the current size
+    this.size++; // Increment the size
+  }
+
+  // Pop operation (optional)
+  pop() {
+    if (this.size === 0) {
+      return "Stack is empty";
+    }
+    const removedElement = this.stack[this.size - 1]; // Get the top element
+    this.size--; // Decrement the size
+    return removedElement;
+  }
+
+  // Print the stack
+  print() {
+    console.log(this.stack.slice(0, this.size)); // Print only the active stack
+  }
+}
+
+// Example Usage
+const myStack = new Stacks();
+myStack.push(10);
+myStack.push(20);
+myStack.push(30);
+myStack.print(); // Output: [10, 20, 30]
+
+
+
 // Stack End
 
 

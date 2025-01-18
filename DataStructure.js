@@ -218,6 +218,67 @@ myStack.print(); // Output: [10, 20, 30]
 // Stack End
 
 
+// Queue in javaScript start
+
+class queue{
+  constructor (){
+    this.items=[]
+    this.fontIndex=0
+    this.bacIndex=0
+
+
+  }
+  enqueue(item){
+    this.items[this.bacIndex]=item
+    this.bacIndex++
+    return item + ' inserted'
+  }
+  dequeue(){
+    const item = this.items[this.fontIndex]
+    delete this.items[this.fontIndex]
+    this.fontIndex++
+    return item
+  }
+  peek(){
+    return this.items[this.fontIndex]
+  }
+  get printQueue(){
+    return this.items;
+  }
+}
+
+const Queues=new queue();
+
+
+console.log(Queues.enqueue(7));
+console.log(Queues.enqueue(3));
+console.log(Queues.enqueue(5));
+console.log(Queues.enqueue(1));
+console.log(Queues.enqueue(8));
+console.log(Queues.enqueue(19));
+
+let data = Queues.printQueue
+console.log(data);
+
+console.log(Queues.dequeue());
+
+let data2=Queues.printQueue
+console.log(data2);
+
+
+
+
+
+
+
+
+// Queue in javaScript End
+
+
+
+
+
+
 
 
 

@@ -106,62 +106,53 @@ let len = arr2.length;
 let selection_data = slection_sort(arr2, len);
 console.log(selection_data);
 
-//   Selecttion sort End  
+//   Selecttion sort End
 
+//   Insertion sort start
 
+function insertion_Sort(arr, n) {
+  let i, j, item;
 
-//   Insertion sort start  
+  for (i = 1; i < n; i++) {
+    item = arr[i];
 
+    j = i - 1;
+    while (j >= 0 && arr[j] > item) {
+      arr[j + 1] = arr[j];
+      j = j - 1;
+    }
 
-function insertion_Sort(arr,n){
-  let i,j,item;
-
-  for(i=1;i<n;i++){
-    item = arr[i]
-
-    j=i-1;
-    while(j>=0 && arr[j]>item){
-      arr[j+1]=arr[j];
-      j= j-1;
+    arr[j + 1] = item;
   }
-
-  arr[j+1]=item;
-
-
-}
-return arr
-
+  return arr;
 }
 
-let insertion_Sort_Data= insertion_Sort(arr2,len)
+let insertion_Sort_Data = insertion_Sort(arr2, len);
 
 console.log(insertion_Sort_Data);
 
 //   Insertion sort End
 
+// Stack start
 
-
-// Stack start 
-
-class Stack{
-  constructor(){
-    this.item =[ ];
+class Stack {
+  constructor() {
+    this.item = [];
   }
-  pushs(element){
+  pushs(element) {
     this.item.push(element);
   }
 
-  pops(){
-    if(this.item.length ===0){
-      return this.item.pop()
+  pops() {
+    if (this.item.length === 0) {
+      return this.item.pop();
     }
     return this.item.pop();
   }
-
 }
 
 let stack = new Stack();
-stack.pushs(3)
+stack.pushs(3);
 stack.pushs(3);
 stack.pushs(7);
 stack.pushs(9);
@@ -169,19 +160,14 @@ stack.pushs(6);
 stack.pushs(8);
 stack.pushs(2);
 
-stack.pops()
-
+stack.pops();
 
 console.log(stack);
-
-
-
-
 
 class Stacks {
   constructor() {
     this.stack = []; // Initialize an empty array
-    this.size = 0;   // Track the number of elements in the stack
+    this.size = 0; // Track the number of elements in the stack
   }
 
   // Simulated Push
@@ -213,42 +199,36 @@ myStack.push(20);
 myStack.push(30);
 myStack.print(); // Output: [10, 20, 30]
 
-
-
 // Stack End
-
 
 // Queue in javaScript start
 
-class queue{
-  constructor (){
-    this.items=[]
-    this.fontIndex=0
-    this.bacIndex=0
-
-
+class queue {
+  constructor() {
+    this.items = [];
+    this.fontIndex = 0;
+    this.bacIndex = 0;
   }
-  enqueue(item){
-    this.items[this.bacIndex]=item
-    this.bacIndex++
-    return item + ' inserted'
+  enqueue(item) {
+    this.items[this.bacIndex] = item;
+    this.bacIndex++;
+    return item + " inserted";
   }
-  dequeue(){
-    const item = this.items[this.fontIndex]
-    delete this.items[this.fontIndex]
-    this.fontIndex++
-    return item
+  dequeue() {
+    const item = this.items[this.fontIndex];
+    delete this.items[this.fontIndex];
+    this.fontIndex++;
+    return item;
   }
-  peek(){
-    return this.items[this.fontIndex]
+  peek() {
+    return this.items[this.fontIndex];
   }
-  get printQueue(){
+  get printQueue() {
     return this.items;
   }
 }
 
-const Queues=new queue();
-
+const Queues = new queue();
 
 console.log(Queues.enqueue(7));
 console.log(Queues.enqueue(3));
@@ -257,20 +237,19 @@ console.log(Queues.enqueue(1));
 console.log(Queues.enqueue(8));
 console.log(Queues.enqueue(19));
 
-let data = Queues.printQueue
+let data = Queues.printQueue;
 console.log(data);
 
 console.log(Queues.dequeue());
 
-let data2=Queues.printQueue
+let data2 = Queues.printQueue;
 console.log(data2);
 
 // Queue in javaScript End
 
-
-// Linked lish start 
-class Node{
-  constructor(value){
+// Linked lish start
+class Node {
+  constructor(value) {
     this.value = value;
     this.next = null;
   }
@@ -332,49 +311,99 @@ class LinkedLinst {
     return current;
   }
   // Print the list
-  print(){
-    let current =this.head;
-    let result = '';
-    while(current){
-      result +=current.value + ' ->';
-      current= current.next;
+  print() {
+    let current = this.head;
+    let result = "";
+    while (current) {
+      result += current.value + " ->";
+      current = current.next;
     }
-    console.log(result + ' null');
-    
+    console.log(result + " null");
   }
 }
 
-
 //Example usage:
 
-const list =new LinkedLinst();
-list.append(10)
+const list = new LinkedLinst();
+list.append(10);
 list.append(20);
 list.append(30);
 list.append(40);
 list.append(50);
 list.print();
-list.remove(30)
-list.print()
+list.remove(30);
+list.print();
 
 console.log(list.find(20));
 list.prepend(5);
-list.print()
+list.print();
 
 console.log(list);
 
+// Linked lish End
+
+//Double Linked lish Start
+class Nodes {
+  constructor(data) {
+    this.data = data;
+    this.next = null;
+    this.prev = null;
+  }
+}
+
+class DoublyLinkedList {
+  constructor() {
+    this.head = null;
+    this.tail = null;
+    this.size = 0;
+  }
+
+  append(data) {
+    const newNode = new Nodes(data);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      this.tail = newNode;
+      newNode.prev = this.tail;
+      this.tail = newNode;
+    }
+    this.size++;
+  }
+
+  prepend(data) {
+    const newNode = new Nodes(data);
+    if (!this.head) {
+      this.head = newNode;
+      this.tail = newNode;
+    } else {
+      newNode.next = this.head;
+      this.head.prev = newNode;
+      this.head = newNode;
+    }
+    this.size++;
+  }
+
+  print() {
+    let current = this.tail;
+    const result = [];
+    while (current) {
+      result=current.data;
+      current = current.prev;
+    }
+    console.log(result);
+  }
+}
+
+const dll = new DoublyLinkedList();
+
+dll.append(55);
+dll.append(65);
+dll.append(75);
+dll.append(85);
+dll.prepend(99);
+dll.prepend(919);
+console.log(dll);
 
 
-
-// Linked lish End 
-
-
-
-
-
-
-
-
-
-
-
+//Double Linked lish End

@@ -248,102 +248,102 @@ console.log(data2);
 // Queue in javaScript End
 
 // Linked lish start
-class Node {
-  constructor(value) {
-    this.value = value;
-    this.next = null;
-  }
-}
+// class Node {
+//   constructor(value) {
+//     this.value = value;
+//     this.next = null;
+//   }
+// }
 
-class LinkedLinst {
-  constructor() {
-    this.head = null;
-    this.size = 0;
-  }
-  // Add a node to the end of the list
-  append(value) {
-    const newNode = new Node(value);
-    if (!this.head) {
-      this.head = newNode;
-    } else {
-      let current = this.head;
-      while (current.next) {
-        current = current.next;
-      }
-      current.next = newNode;
-    }
-    this.size++;
-  }
-  // Add a node to the beginning of the list
-  prepend(value) {
-    const newNode = new Node(value);
-    newNode.next = this.head;
-    this.head = newNode;
+// class LinkedLinst {
+//   constructor() {
+//     this.head = null;
+//     this.size = 0;
+//   }
+//   // Add a node to the end of the list
+//   append(value) {
+//     const newNode = new Node(value);
+//     if (!this.head) {
+//       this.head = newNode;
+//     } else {
+//       let current = this.head;
+//       while (current.next) {
+//         current = current.next;
+//       }
+//       current.next = newNode;
+//     }
+//     this.size++;
+//   }
+//   // Add a node to the beginning of the list
+//   prepend(value) {
+//     const newNode = new Node(value);
+//     newNode.next = this.head;
+//     this.head = newNode;
 
-    this.size++;
-  }
+//     this.size++;
+//   }
 
-  // Remove a node by value
-  remove(value) {
-    if (!this.head) return null;
+//   // Remove a node by value
+//   remove(value) {
+//     if (!this.head) return null;
 
-    if (this.head.value === value) {
-      this.head = this.head.next;
-      this.size--;
-      return;
-    }
-    let current = this.head;
-    while (current.next && current.next.value !== value) {
-      current = current.next;
-    }
+//     if (this.head.value === value) {
+//       this.head = this.head.next;
+//       this.size--;
+//       return;
+//     }
+//     let current = this.head;
+//     while (current.next && current.next.value !== value) {
+//       current = current.next;
+//     }
 
-    if (current.next) {
-      current.next = current.next.next;
-      this.size--;
-    }
-  }
-  // Find a node by value
-  find(value) {
-    let current = this.head;
-    while (current && current.value !== value) {
-      current = current.next;
-    }
-    return current;
-  }
-  // Print the list
-  print() {
-    let current = this.head;
-    let result = "";
-    while (current) {
-      result += current.value + " ->";
-      current = current.next;
-    }
-    console.log(result + " null");
-  }
-}
+//     if (current.next) {
+//       current.next = current.next.next;
+//       this.size--;
+//     }
+//   }
+//   // Find a node by value
+//   find(value) {
+//     let current = this.head;
+//     while (current && current.value !== value) {
+//       current = current.next;
+//     }
+//     return current;
+//   }
+//   // Print the list
+//   print() {
+//     let current = this.head;
+//     let result = "";
+//     while (current) {
+//       result += current.value + " ->";
+//       current = current.next;
+//     }
+//     console.log(result + " null");
+//   }
+// }
 
-//Example usage:
+// //Example usage:
 
-const list = new LinkedLinst();
-list.append(10);
-list.append(20);
-list.append(30);
-list.append(40);
-list.append(50);
-list.print();
-list.remove(30);
-list.print();
+// const list = new LinkedLinst();
+// list.append(10);
+// list.append(20);
+// list.append(30);
+// list.append(40);
+// list.append(50);
+// list.print();
+// list.remove(30);
+// list.print();
 
-console.log(list.find(20));
-list.prepend(5);
-list.print();
+// console.log(list.find(20));
+// list.prepend(5);
+// list.print();
 
-console.log(list);
+// console.log(list);
 
 // Linked lish End
 
 //Double Linked lish Start
-class Nodes {
+class Node {
   constructor(data) {
     this.data = data;
     this.next = null;
@@ -359,12 +359,12 @@ class DoublyLinkedList {
   }
 
   append(data) {
-    const newNode = new Nodes(data);
+    const newNode = new Node(data);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
     } else {
-      this.tail = newNode;
+      this.tail.next = newNode;
       newNode.prev = this.tail;
       this.tail = newNode;
     }
@@ -372,7 +372,7 @@ class DoublyLinkedList {
   }
 
   prepend(data) {
-    const newNode = new Nodes(data);
+    const newNode = new Node(data);
     if (!this.head) {
       this.head = newNode;
       this.tail = newNode;
@@ -388,7 +388,7 @@ class DoublyLinkedList {
     let current = this.tail;
     const result = [];
     while (current) {
-      result=current.data;
+      result = current.data;
       current = current.prev;
     }
     console.log(result);
@@ -404,6 +404,5 @@ dll.append(85);
 dll.prepend(99);
 dll.prepend(919);
 console.log(dll);
-
 
 //Double Linked lish End

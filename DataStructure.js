@@ -408,4 +408,88 @@ dll.prepend(919);
 console.log(dll);
 dll.print();
 
-//Double Linked lish End
+//Double Linked lish End 
+
+//Tree start  
+class Tree{
+  constructor(data){
+    this.data=data;
+    this.left=null
+    this.right =null
+  }
+}
+
+class binary_SearchTree{
+  constructor(){
+    this.root=null
+  }
+  insert(data){
+    let newNode=new Tree(data)
+
+    if(this.root == null){
+      this.root=newNode
+    }else{
+      this.insertNode(this.root,newNode)
+    }
+
+
+
+  }
+  insertNode(node,newNode){
+    if(newNode < node.data){
+      if(node.left == null){
+        node.left=newNode
+      }else{
+        this.insertNode(node.left,newNode)
+      }
+    }else{
+      if(node.right==null){
+        node.right =newNode
+      }else{
+        this.insertNode(node.right,newNode)
+      }
+    }
+  }
+  remove(data){
+    this.root =this.removeNode(this.root,data);
+  }
+  removeNode(node,key){
+    if(node==null){
+      return null
+    }else if(kew <node.data){
+      node.left = this.removeNode(node.left,key)
+      return node
+    }else if(key >node.data){
+      node.right=this.removeNode(node.right,key)
+      return node;
+    }else{
+      if(node.left === null && node.right=== null){
+        node=null;
+        return node;
+      }
+      if(node.left ===null){
+        node=node.right;
+        return node;
+      }
+    }
+  }
+}
+
+let BST= new binary_SearchTree()
+BST.insert(15)
+BST.insert(25);
+BST.insert(35);
+BST.insert(45);
+BST.insert(55);
+BST.insert(65);
+BST.insert(75);
+BST.insert(85);
+BST.insert(95);
+console.log(BST);
+
+
+//Tree End
+
+
+
+

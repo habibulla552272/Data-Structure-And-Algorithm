@@ -419,59 +419,86 @@ class Tree{
   }
 }
 
-class binary_SearchTree{
-  constructor(){
-    this.root=null
+class binary_SearchTree {
+  constructor() {
+    this.root = null;
   }
-  insert(data){
-    let newNode=new Tree(data)
+  insert(data) {
+    let newNode = new Tree(data);
 
-    if(this.root == null){
-      this.root=newNode
-    }else{
-      this.insertNode(this.root,newNode)
+    if (this.root == null) {
+      this.root = newNode;
+    } else {
+      this.insertNode(this.root, newNode);
     }
-
-
-
   }
-  insertNode(node,newNode){
-    if(newNode < node.data){
-      if(node.left == null){
-        node.left=newNode
-      }else{
-        this.insertNode(node.left,newNode)
+  insertNode(node, newNode) {
+    if (newNode < node.data) {
+      if (node.left == null) {
+        node.left = newNode;
+      } else {
+        this.insertNode(node.left, newNode);
       }
-    }else{
-      if(node.right==null){
-        node.right =newNode
-      }else{
-        this.insertNode(node.right,newNode)
+    } else {
+      if (node.right == null) {
+        node.right = newNode;
+      } else {
+        this.insertNode(node.right, newNode);
       }
     }
   }
-  remove(data){
-    this.root =this.removeNode(this.root,data);
+  remove(data) {
+    this.root = this.removeNode(this.root, data);
   }
-  removeNode(node,key){
-    if(node==null){
-      return null
-    }else if(kew <node.data){
-      node.left = this.removeNode(node.left,key)
-      return node
-    }else if(key >node.data){
-      node.right=this.removeNode(node.right,key)
+  removeNode(node, key) {
+    if (node == null) {
+      return null;
+    } else if (kew < node.data) {
+      node.left = this.removeNode(node.left, key);
       return node;
-    }else{
-      if(node.left === null && node.right=== null){
-        node=null;
+    } else if (key > node.data) {
+      node.right = this.removeNode(node.right, key);
+      return node;
+    } else {
+      if (node.left === null && node.right === null) {
+        node = null;
         return node;
       }
-      if(node.left ===null){
-        node=node.right;
+      if (node.left === null) {
+        node = node.right;
         return node;
       }
     }
+  }
+  // search for a node with given data
+  search(node, data) {
+    // if trees is empty return null
+    if (node === null) return null;
+    // if data is less than node's data
+    // move left
+    else if (data < node.data) return this.search(node.left, data);
+    // if data is more than node's data
+    // move right
+    else if (data > node.data) return this.search(node.right, data);
+    // if data is equal to the node data
+    // return node
+    else return node;
+  }
+  // Performs inorder traversal of a tree
+  inorder(node) {
+    if (node !== null) {
+      this.inorder(node.left);
+      console.log(node.data);
+      this.inorder(node.right);
+    }
+  }
+  //  finds the minimum node in tree
+  // searching starts from given node
+  findMinNode(node) {
+    // if left of a node is null
+    // then it must be minimum node
+    if (node.left === null) return node;
+    else return this.findMinNode(node.left);
   }
 }
 

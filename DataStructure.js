@@ -26,6 +26,38 @@ let a = [15, 2, 7, 44, 11, 5];
 // console.log(x);
 
 //bubble sort end
+//merge  sort end
+function mergeShort(arr){
+  if(arr.length <= 1){
+    return arr
+  }
+
+  const mid =Math.floor(arr.length /2)
+  let left = arr.slice(0,mid);
+  let right =arr.slice(mid)
+  return merge(mergeShort(left),mergeShort(right))
+}
+
+function merge(left,right){
+  let resultArray= [],leftindex=0,rightindex=0;
+  while(leftindex <left.length && rightindex <right .length){
+    if(left[leftindex]<right[rightindex]){
+      resultArray .push(left[leftindex]);
+      leftindex++
+    }else{
+      resultArray.push(right[rightindex])
+      rightindex++
+    }
+  }
+  return resultArray.concat(left.slice(leftindex)).concat(right.slice(rightindex))
+}
+
+const arrays =[33,4,32,5,6,22]
+const sortedArray =mergeShort(arrays);
+console.log(sortedArray);
+
+//merge sort end
+
 
 //Linear  search start
 
